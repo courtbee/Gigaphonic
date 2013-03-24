@@ -58,7 +58,7 @@ async.parallel(tracks, function (err, streams) {
     var cursor = $("#playbackCursor");
     cursor.css({ left: wave.position().left + pixelOffset, height: container.height() });
 
-    if (playedOffset < songDuration) {
+    if (playedOffset < songDuration && isPlaying) {
       window.setTimeout(updateCursor, 100);
     }
   };
@@ -78,14 +78,33 @@ async.parallel(tracks, function (err, streams) {
 
   createCursor();
 
-  window.playTracks = function () {
-    for (var i = streams.length - 1; i >= 0; i--) {
-      var stream = streams[i];
-      stream.play();
-    };
+  var controls = $("#controls");
+
+  controls.text("Play");
+  var isPlaying = false;
+
+  controls.click(function (event) {
+    if (isPlaying) {
+      controls.text("Play");
+      isPlaying = false;
+
+      for (var i = streams.length - 1; i >= 0; i--) {
+        var stream = streams[i];
+        stream.pause();
+      };
+    }
+    else {
+      controls.text("Pause");
+      isPlaying = true;
+
+      for (var i = streams.length - 1; i >= 0; i--) {
+        var stream = streams[i];
+        stream.play();
+      };
+    }
 
     updateCursor();
 
-    console.log(this);
-  };
+    event.preventDefault();
+  });
 });
