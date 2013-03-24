@@ -1,0 +1,40 @@
+.menu-spacer {
+  margin: 0 20px 0 18%;
+}
+
+.tracks .waveforms {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tracks .waveforms th {
+  font-weight: normal;
+  text-align: left;
+  vertical-align: middle;
+
+  background-color: #eee;
+  padding: 5px;
+}
+
+.tracks .waveforms th .name,
+.tracks .waveforms th .revision {
+  white-space: nowrap;
+}
+
+.tracks .waveforms td {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #e5e5e5;
+}
+
+.tracks .waveforms img {
+  display: block;
+  height: 140px;
+  max-width: 100%;
+  background-color: #cc3a00;
+}
+
+.tracks .waveforms .no-track {
+  height: 140px;
+}

@@ -5,6 +5,7 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/tracks.css" />
 	<link href='http://fonts.googleapis.com/css?family=Cuprum:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
 	<!-- JS -->
@@ -55,7 +56,7 @@
 			<span>track <small>x</small></span>
 			<span>track <small>x</small></span>
 		</div>
-	</section>	
+	</section>
 	<section class="mix clearfix">
 		<div class="mix-data">
 			<h2>%Mix-Title</h2>
@@ -63,6 +64,36 @@
 			<p><strong>Key:</strong> A minor</p>
 			<p><strong>Time Signature:</strong> 4/4</p>
 		</div>
+
+		<div class="tracks">
+      <h3>Tracks <a href="" id="controls"></a></h3>
+
+      <div class="menu-spacer">
+	      <table class="waveforms">
+	        <tr data-track="293">
+	          <th>
+	            <span class="name">Composition</span>
+	            <span class="revision">Take 3 &bull; <a href="">Other takes</a></span>
+	          </th>
+	          <td>Loading&hellip;</td>
+	        </tr>
+	        <tr data-track="45763671">
+	          <th>
+	            <span class="name">Snoop Dogg chatter</span>
+	            <span class="revision">Take 1</span>
+	          </th>
+	          <td>Loading&hellip;</td>
+	        </tr>
+	        <tr>
+	          <th>
+	            <span class="name">Saxophone</span>
+	            <span class="revision">No takes, <a href="">record one now</a>!</span>
+	          </th>
+	          <td class="no-track"></td>
+	        </tr>
+	      </table>
+	    </div>
+    </div>
 	</section>
 
 	<!-- SCRIPTS -->
@@ -72,6 +103,10 @@
 	<script type="text/javascript">
 		$('.dropdown-toggle').dropdown();
 	</script>
+
+	<script src="http://connect.soundcloud.com/sdk.js"></script>
+  <script src="https://raw.github.com/caolan/async/master/lib/async.js"></script>
+  <script src="js/tracks.js"></script>
 
 </body>
 </html>
