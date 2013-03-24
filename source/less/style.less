@@ -2,12 +2,97 @@
 @import 'variables.less';
 @import 'mixins.less';
 @import 'dropdowns.less';
-@import 'buttons.less';
-@import 'button-groups.less';
 @import 'grid.less';
 
 @column-width: 60;
-@gutter-width: 20;
+@gutter-width: 0;
 @columns: 12;
 @total-width: 100%;
 
+// COLOR SCHEME
+@dkgrey:	#0A0A0A;
+@plum:		#8C0048;
+@ltgrey:	#D9D9D9;
+
+
+//-----------------------------------------------------------------
+// The main crap'ola
+//-----------------------------------------------------------------
+
+body, html { height: 100%; }
+
+body {
+	font-size: 16px;
+	line-height: 1em;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
+header {
+	.column(12);
+	background-color: @plum;
+	height: 6%;
+	min-height: 35px;
+
+	h1 {
+		display:inline-block;
+		font-family:'Flamenco', sans-serif;
+		font-weight:bold;
+		font-size:1.8em;
+		margin:10px 0 0 5px;
+		color:@white;
+	}
+	nav {
+		float: right;
+		font-family: 'Cuprum', sans-serif;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin: 10px 20px 0 0;
+
+		a {
+			text-decoration: none;
+			font-size: 1.2em;
+		}
+
+		a:link {
+			color: @white;
+		}
+		a:hover {
+			color: @ltgrey;
+		}
+		a:visited {
+			color: @white;
+		}
+		a:active {
+			color: @white;
+		}
+
+		ul {
+			li {
+				font-size: 0.8em;
+
+				a {
+					text-align: right;
+				}
+			}
+		}
+	}
+}
+
+	nav > a {
+		margin-right: -10px;
+	}
+
+article {
+	.column(10);
+	background-color: @ltgrey;
+	height:94%;
+	display:block;
+}
+
+aside {
+	.column(2);
+	background-color: @dkgrey;
+	display: block;
+	height:94%;
+	color:@white;
+}
