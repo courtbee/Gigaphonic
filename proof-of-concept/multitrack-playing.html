@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <style>
+      #tracks ul { padding: 0; margin: 0; }
+      #tracks li img { display: block; height: 140px; }
+    </style>
+  </head>
+  <body>
+    <div id="tracks">
+      <ul>
+        <li data-track="293">Drum track</li>
+        <li data-track="45763671">Noise</li>
+      </ul>
+    </div>
+
+    <script src="//connect.soundcloud.com/sdk.js"></script>
+    <script src="https://raw.github.com/caolan/async/master/lib/async.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+      var client_id = "3bac0c7e3cff7e9c3a0fd3bbbb57718c";
+
+      SC.initialize({
+        client_id: client_id
+      });
+
+      var loadStream = function (track) {
+        return function (callback) {
+          SC.stream("/tracks/" + track, function (stream) {
+            stream.track = track;
+
+            stream.load({
+              onload: function () { callback(null, stream); }
+            });
+          });
+        };
+      };
+
+      var container = $("#tracks");
+      container.css({ position: "relative" });
+      var tracks = [];
+
+      $("li", container).each(function (i, el) {
+        var trackId = $(el).data("track");
+
+        $.get("http://api.soundcloud.com/tracks/" + trackId + ".json?client_id=" + client_id, function (data) {
+          $(el).append($("<img src='" + data.waveform_url + "' id='wave" + trackId + "'>"));
+        });
+
+        tracks.push(loadStream(trackId));
+      });
+
+      async.parallel(tracks, function (err, streams) {
+        var maxLength = 0;
+
+        for (var i = streams.length - 1; i >= 0; i--) {
+          var stream = streams[i];
+          if (stream.duration > maxLength) {
+            maxLength = stream.duration;
+          }
+
+          stream.play();
+        };
+
+        for (var i = streams.length - 1; i >= 0; i--) {
+          var stream = streams[i];
+          var widthPercentage = stream.duration / maxLength * 100;
+          $("#wave" + stream.track).width(widthPercentage + "%");
+        };
+
+        var updateCursor = function () {
+          var containerWidth = container.width();
+          var songDuration = maxLength;
+          var playedOffset = stream.position;
+          var pixelOffset = playedOffset * containerWidth / songDuration;
+
+          var cursor = $("#playbackCursor");
+          cursor.css({ left: pixelOffset, height: container.height() });
+
+          if (playedOffset < songDuration) {
+            window.setTimeout(updateCursor, 100);
+          }
+          else {
+            destroyCursor();
+          }
+        };
+
+        var createCursor = function () {
+          var cursor = $("<div id='playbackCursor'></div>");
+          cursor.css({
+            position: "absolute",
+            top: 0,
+            height: container.height(),
+            "background-color": "#000",
+            width: 1
+          });
+          container.append(cursor);
+        };
+
+        var destroyCursor = function () {
+          $("#playbackCursor").remove();
+        };
+
+        createCursor();
+        updateCursor();
+      });
+    </script>
+  </body>
+</html>
