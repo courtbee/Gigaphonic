@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>gigaphonic</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="page-container">
+        <div class="user">
+          John Doe
+
+          <ul>
+            <li><a href="">Profile</a></li>
+            <li><a href="">Sign out</a></li>
+          </ul>
+        </div>
+
+        <h1>gigaphonic</h1>
+      </div>
+    </div>
+
+    <div class="page-container">
+      <div class="song">
+        <div class="owner">
+          <img src="http://placehold.it/420x420" height="210" />
+          John Doe
+        </div>
+
+        <div class="info">
+          <h2>Your song title</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+
+        <div class="tracks">
+          <h3>Tracks <a href="" id="controls"></a></h3>
+
+          <table class="waveforms">
+            <tr data-track="293">
+              <th>
+                <span class="name">Composition</span>
+                <span class="revision">Take 3 &bull; <a href="">Other takes</a></span>
+              </th>
+              <td>Loading&hellip;</td>
+            </tr>
+            <tr data-track="45763671">
+              <th>
+                <span class="name">Snoop Dogg chatter</span>
+                <span class="revision">Take 1</span>
+              </th>
+              <td>Loading&hellip;</td>
+            </tr>
+            <tr>
+              <th>
+                <span class="name">Saxophone</span>
+                <span class="revision">No takes, <a href="">record one now</a>!</span>
+              </th>
+              <td class="no-track"></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="collaborators">
+          <h3>Collaborators</h3>
+
+          <ul>
+            <li>
+              <a href="">
+                <h2>John Doe</h2>
+                <p>Composition</p>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <h2>Jane Smith</h2>
+                <p>Snoop Dogg chatter</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="http://connect.soundcloud.com/sdk.js"></script>
+    <script src="https://raw.github.com/caolan/async/master/lib/async.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="tracks.js"></script>
+  </body>
+</html>
