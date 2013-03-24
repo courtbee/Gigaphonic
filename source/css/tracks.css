@@ -19,6 +19,7 @@
 .tracks .waveforms th .name,
 .tracks .waveforms th .revision {
   white-space: nowrap;
+  display: block;
 }
 
 .tracks .waveforms td {
