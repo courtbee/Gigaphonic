@@ -28,12 +28,6 @@
     background-image: -ms-linear-gradient(@origin, @start, @stop);
     background-image: linear-gradient(@origin, @start, @stop);
 }
- 
-/* Implementation */
-//#someDiv {
-//    .gradient(left, #663333, #333333);
-//}
-
 
 //-----------------------------------------------------------------
 // The main crap'ola
@@ -125,6 +119,19 @@ section.sidebar {
 			display:block;
 			.border-radius(@radius);
 			margin-bottom:10px;
+		}
+
+		.icon {
+			.border-radius(@radius);
+			background-color: @ltgrey;
+			width: 20px;
+			height: 20px;
+			display:inline-block;
+			margin: 10px 5px;
+
+			span {
+				display: none;
+			}
 		}
 	}
 
