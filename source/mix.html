@@ -17,22 +17,25 @@
 <body>
 	<header>
 		<h1>Gigaphonic</h1>
-		<nav>
-
+		<nav class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu <b class="caret"></b></a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li><a href="#">My Profile</a></li>
+				<li><a href="#">My Tracks</a></li>
+				<li><a href="#">My Mixes</a></li>
+			</ul>
 		</nav>
 	</header>
 
 
 
 
-	<!-- INITIATE JQUERY (like a boss) -->
-	<script type="text/javascript" src="js/jquery.flexnav.js"></script>
-
-
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/bootstrap-dropdown.js"></script>
 
 	<!-- LE PARAMETERS -->
 	<script type="text/javascript">
-		$(".flexnav").flexNav();
+		$('.dropdown-toggle').dropdown();
 	</script>
 
 </body>
