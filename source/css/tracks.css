@@ -7,6 +7,10 @@
   border-collapse: collapse;
 }
 
+.tracks .waveforms tr {
+  height: 140px;
+}
+
 .tracks .waveforms th {
   font-weight: normal;
   text-align: left;
@@ -17,7 +21,8 @@
 }
 
 .tracks .waveforms th .name,
-.tracks .waveforms th .revision {
+.tracks .waveforms th .revision,
+.tracks .waveforms th .record {
   white-space: nowrap;
 }
 
@@ -33,6 +38,11 @@
   height: 140px;
   max-width: 100%;
   background-color: #8c0048;
+}
+
+.tracks .waveforms form {
+  margin: 10px;
+  width: 100%;
 }
 
 .tracks .waveforms .no-track {
