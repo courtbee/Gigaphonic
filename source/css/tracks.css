@@ -24,6 +24,7 @@
 .tracks .waveforms th .revision,
 .tracks .waveforms th .record {
   white-space: nowrap;
+  display: block;
 }
 
 .tracks .waveforms td {
