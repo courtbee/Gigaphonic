@@ -1,0 +1,37 @@
+extends layout
+
+block headscript
+  != js("https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js")
+  != js("recorder")
+
+  script
+    function setup() {
+      Wami.setup("wami");
+    }
+
+    function record() {
+      status("Recording...");
+      Wami.startRecording("http://localhost:5000/audio");
+    }
+
+    function play() {
+      Wami.startPlaying("http://localhost:5000/audio");
+    }
+
+    function stop() {
+      status("");
+      Wami.stopRecording();
+      Wami.stopPlaying();
+    }
+
+    function status(msg) {
+      document.getElementById('status').innerHTML = msg;
+    }
+
+block body
+  button(value="Record", onclick="record()") Record
+  button(value="Stop", onclick="stop()") Stop
+  button(value="Play", onclick="play()") Play
+  
+  #status
+  #wami

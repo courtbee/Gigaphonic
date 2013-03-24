@@ -1,0 +1,15 @@
+doctype 5
+html
+  head
+    != css("main")
+
+    block headscript
+
+  body(onload="setup()")
+    block body
+
+    != js("//connect.soundcloud.com/sdk.js")
+    != js("//w.soundcloud.com/player/api.js")
+    != js("main")
+
+    block script
